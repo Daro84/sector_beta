@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div class="container">
+
+<div class="alert alert-success" role="alert">
+    <strong>Beta coefficients for WSE sector indexes (start date {{date_start}}, end date {{date_end}})</strong>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Index</th>
+            <th scope="col">Last value</th>
+            <th scope="col">Rate of return (last year)</th>
+            <th scope="col">Standard deviation (%)</th>
+            <th scope="col">Beta coefficient</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in data_summary %}
+            <tr>
+                <td><strong>{{d.index}}</strong></td>
+                <td>{{d.last_value}}</td>
+                <td>{{d.rate_return}}</td>
+                <td>{{d.sd}}</td>
+                <td>{{d.beta}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+
+{% endblock %}
